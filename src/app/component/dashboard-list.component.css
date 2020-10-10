@@ -1,0 +1,24 @@
+.column-header{
+    background-color: #C6EFCE;
+}
+
+.header, .content{
+    margin: 10px 0;
+    padding-left: 30px;
+}
+
+/* .content{
+    margin: 10px 0;
+} */
+
+.btn{
+    margin-right: 5px;
+}
+
+.top-padding-8{
+    padding-top: 8px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid;
+}

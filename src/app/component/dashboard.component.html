@@ -1,0 +1,39 @@
+<div *ngIf="dashboards.length <=0" class="panel panel-warning">
+    <div class="panel-heading">
+        You have not create any dashboard, start create your first dashboard!
+        <button class="btn btn-success" (click)="openCreateModal(createtemplate)">
+            Create Dashboard
+        </button>
+    </div>
+</div>
+<div *ngIf="dashboards.length > 0" class="dashboard-container">
+    <div>
+        <button class="btn btn-success bottom-margin" (click)="openCreateModal(createtemplate)">
+            Create Dashboard
+        </button>
+    </div>
+    <app-dashboard-list [dashboards]="dashboards"></app-dashboard-list>
+</div>
+
+<ng-template #createtemplate>
+    <div class="modal-header">
+        <h4 class="modal-title">Create Dashboard</h4>
+    </div>
+    <div class="modal-body">
+        <form #form="ngForm" novalidate class="was-validated">
+            <div class="form-group row">
+                <label for="staticLabel" class="col-sm-4 col-name-label">Dashboard Name:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" required placeholder="type the dashboard name here"
+                        maxlength="200" name="dashboardname" [(ngModel)]="dashboardName">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="createNewDashboard()"
+            [disabled]="!form.valid">Save</button>
+    </div>
+</ng-template>

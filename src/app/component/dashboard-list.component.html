@@ -1,0 +1,18 @@
+<div class="row column-header">
+    <div class="col-sm-8 header">
+        Dashboard Name
+    </div>
+    <div class="col-sm-4 header">
+        Action
+    </div>
+</div>
+
+<div *ngFor="let dashboard of dashboards" class="row border-bottom">
+        <div class="col-sm-8 content top-padding-8">
+            {{dashboard.name}}
+        </div>
+        <div class="col-sm-4 content">
+            <button type="button" class="btn btn-primary" (click)="updateDashboard(dashboard)">Update</button>
+            <button type="button" class="btn btn-danger" (click)="deleteDashboard(dashboard)">Delete</button>
+        </div>
+</div>
