@@ -1,5 +1,6 @@
 export interface CloudResourceWidget{
     id: number;
-    type: string;
+    widgetType: string;
+    name: string;
     source: string;
 }
