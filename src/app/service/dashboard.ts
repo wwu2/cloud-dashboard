@@ -3,4 +3,5 @@ export interface DashBoard{
     id: number;
     name: string;
     cloudResourceWidgets: CloudResourceWidget[];  
+    context: string;
 }

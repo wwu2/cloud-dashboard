@@ -13,6 +13,8 @@ export class DashboardComponent implements OnInit {
   bsModalRef: BsModalRef;
   dashboards: DashBoard[];
   dashboardName: string;  // the new dashboard name to be created
+  globalContext: string; // the global context to be selected for the new created dashboard
+  contextList: string[] = ["Tenant Name","Project Name"];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private modalService: BsModalService, private dashboardService: CloudDashboardService) { }
 
@@ -24,14 +26,16 @@ export class DashboardComponent implements OnInit {
 
   openCreateModal(template: TemplateRef<any>) {
       this.dashboardName = "";
+      this.globalContext = "";
       this.bsModalRef = this.modalService.show(template);
   }
 
   createNewDashboard() {
        let dashboard = {};
        dashboard['name'] = this.dashboardName;
+       dashboard['context'] = this.globalContext;
        dashboard['cloudResourceWidgets'] = [];
-       let dashboardId = this.dashboardService.addAndGetId();
+       let dashboardId = this.dashboardService.addAndGetDashboardId();
        dashboard['id'] = dashboardId;
        this.dashboardService.addDashBoard(dashboard);
        this.bsModalRef.hide()

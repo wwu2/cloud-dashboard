@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
+import {AngularDraggableModule} from 'angular2-draggable';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ModalModule.forRoot(),
     FormsModule,
+    AngularDraggableModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [DashBoardResolver, DashBoardDetailResolver],

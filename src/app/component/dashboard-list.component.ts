@@ -21,7 +21,7 @@ export class DashboardListComponent implements OnInit {
   }
 
   deleteDashboard(dashboard: DashBoard){
-     console.log("yet to be implemented");
+     alert("yet to be implemented");
   }
 
 }
