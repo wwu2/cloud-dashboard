@@ -20,8 +20,6 @@
     ![home_multiple_dashboards](https://user-images.githubusercontent.com/5234165/95719817-f46dbd80-0ca2-11eb-9303-50f6d013d856.png)
 7.  The draggable and resize is implemented via angular2-draggable plugin.
 
-![dashboard_withResources](https://user-images.githubusercontent.com/5234165/95718885-a4422b80-0ca1-11eb-9bbc-c4c87132be33.png)
-
 # CloudDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
