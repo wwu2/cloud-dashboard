@@ -12,23 +12,38 @@
 <div *ngIf="dashboard && dashboard.cloudResourceWidgets.length <=0" class="panel panel-warning minus-margin-top">
     <div class="panel-heading">
         start add cloud resource to your dashboard
-        <button class="btn btn-success" (click)="openCreateWidgetModal(createwidgettemplate)">
+        <button class="btn btn-primary" (click)="openCreateWidgetModal(createwidgettemplate)">
             Add Cloud Resource
         </button>
+        <!-- <button class="pull-right btn btn-success">Share URL</button>
+        <select class="pull-right" [(ngModel)]="dashboard.context" id="context" name="context" >
+                <option *ngFor="let context of contextList" [value]="context">{{context}}</option>
+        </select> -->
     </div>
 </div>
 <div *ngIf="dashboard && dashboard.cloudResourceWidgets.length > 0" class="panel-body">
-    <button class="btn btn-success top-margin-minus" (click)="openCreateWidgetModal(createwidgettemplate)">
-        Add Cloud Resource
-    </button>
+    <div class="row top-margin-minus header-button">
+        <button class="btn btn-primary" (click)="openCreateWidgetModal(createwidgettemplate)">
+            Add Cloud Resource
+        </button>
+        <form class="pull-right form-inline">
+            <label for="context">Global Context:</label>
+            <select class="form-control left-margin-10" [(ngModel)]="dashboard.context" id="context" name="context">
+                <option *ngFor="let context of contextList" [value]="context">{{context}}</option>
+            </select>
+            <button class="btn btn-success left-margin-10" (click)="copyUrlToClipboard()">Share URL</button>
+        </form>
+    </div>
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6"
-            *ngFor="let eachResource of dashboard.cloudResourceWidgets">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" *ngFor="let eachResource of dashboard.cloudResourceWidgets">
             <div ngDraggable ngResizable class="thumbnail">
                 <div class="resource-button row">
-                    <span>{{eachResource.name}}</span>
+                    <span class="resource-name">{{eachResource.name}} -- {{eachResource.widgetType}}</span>
                 </div>
-
+                <div class="caption action-wrapper">
+                    <a class="btn btn-success action-btn" (click)="cloneResource(eachResource)">Clone</a>
+                    <a class="btn btn-success action-btn" (click)="editResource(eachResource)">Edit</a>
+                </div>
             </div>
         </div>
     </div>

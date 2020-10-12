@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
        let dashboardId = this.dashboardService.addAndGetDashboardId();
        dashboard['id'] = dashboardId;
        this.dashboardService.addDashBoard(dashboard);
-       this.bsModalRef.hide()
+       this.bsModalRef.hide();
        this.router.navigateByUrl('dashboard/' + dashboardId);
   }
 

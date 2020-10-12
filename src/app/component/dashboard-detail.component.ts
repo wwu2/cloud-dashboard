@@ -16,6 +16,7 @@ export class DashboardDetailComponent implements OnInit {
   source: string;
   sourceList: string[] = ["API Call", "SQL"];
   widgetTypeList: string[] = ["networks", "servers", "storages", "applications"];
+  contextList: string[] = ["Tenant Name","Project Name"];
   resourceName: string; // the new cloud resource name to be added
   widget: string;
 
@@ -42,6 +43,28 @@ export class DashboardDetailComponent implements OnInit {
      let cloudResourceId =  this.dashboardService.addAndGetWidgetId();
      cloudResource['id'] = cloudResourceId;
      this.dashboard['cloudResourceWidgets'].push(cloudResource);
+     this.bsModalRef.hide();
+  }
+
+  cloneResource(cloudResource: CloudResourceWidget){
+    let newCloudResource = JSON.parse(JSON.stringify(cloudResource));
+    newCloudResource['id'] = this.dashboardService.addAndGetWidgetId();
+     this.dashboard['cloudResourceWidgets'].push(newCloudResource);
+  }
+
+  editResource(cloudResource: CloudResourceWidget){
+    alert('yet to be implemented');
+  }
+
+  copyUrlToClipboard(){
+     let dummyDom = document.createElement('input');
+     let url = window.location.href;
+     document.body.appendChild(dummyDom);
+     dummyDom.value = url;
+     dummyDom.select();
+     document.execCommand('copy');
+     document.body.removeChild(dummyDom);
+     alert('url copied to clipboard');
   }
 
 }
