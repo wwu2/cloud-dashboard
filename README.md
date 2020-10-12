@@ -1,3 +1,9 @@
+# Step to run the application in local(visual studio code)
+  1. make sure you have node&npm installed in your local
+  2. open the project with vs code
+  3. run npm install command in the terminal
+  4. run npm start command and open http://localhost:4200 in the browser
+
 # CloudDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
